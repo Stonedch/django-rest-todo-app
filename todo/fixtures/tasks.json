@@ -1,0 +1,47 @@
+[
+    {
+        "model": "todo.Task",
+        "pk": 1,
+        "fields": {
+            "title": "Test task #001",
+            "description": "This's just test task.",
+            "completed": false
+        }
+    },
+    {
+        "model": "todo.Task",
+        "pk": 2,
+        "fields": {
+            "title": "Test task #002",
+            "description": "This's just test task.",
+            "completed": false
+        }
+    },
+    {
+        "model": "todo.Task",
+        "pk": 3,
+        "fields": {
+            "title": "Test task #003",
+            "description": "This's just test task.",
+            "completed": false
+        }
+    },
+    {
+        "model": "todo.Task",
+        "pk": 4,
+        "fields": {
+            "title": "Test task #004",
+            "description": "This's just test task.",
+            "completed": true
+        }
+    },
+    {
+        "model": "todo.Task",
+        "pk": 5,
+        "fields": {
+            "title": "Test task #005",
+            "description": "This's just test task.",
+            "completed": true
+        }
+    }
+]
