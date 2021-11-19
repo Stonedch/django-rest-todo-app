@@ -109,6 +109,14 @@ CORS_ORIGIN_WHITELIST = [
      'http://localhost:3000',
 ]
 
+# REST Framework settings
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
