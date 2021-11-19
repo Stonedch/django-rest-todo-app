@@ -21,9 +21,12 @@ from rest_framework import routers
 from todo import views
 
 router = routers.DefaultRouter()
-router.register('tasks', views.TaskView, 'task')
+router.register('tasks/?', views.TaskView, 'task')
+slashless_router = routers.DefaultRouter(trailing_slash=False)
+slashless_router.registry = router.registry[:]
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
+    path('api/v1/', include(slashless_router.urls)),
 ]
