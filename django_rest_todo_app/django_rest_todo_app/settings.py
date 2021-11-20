@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'todo',
     'todo.user',
+    'todo.auth',
 ]
 
 MIDDLEWARE = [
