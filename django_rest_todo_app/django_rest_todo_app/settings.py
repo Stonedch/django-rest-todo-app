@@ -104,6 +104,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Auth user model
+AUTH_USER_MODEL = 'todo_user.User'
+
 # Cors settings
 
 CORS_ORIGIN_WHITELIST = [
