@@ -22,9 +22,11 @@ class LoginViewSet(ModelViewSet):
         except TokenError as e:
             raise InvalidToken(e.args[0])
 
+        return Response(serializer.validated_data, status=status.HTTP_200_OK)
 
-class RegisterViewSet(ModelViewSet):
-    serializer_class = RegisterSerializer
+
+class RegistrationViewSet(ModelViewSet):
+    serializer_class = RegistrationSerializer
     permission_classes = (AllowAny, )
     http_method_names = ['post']
 
@@ -55,7 +57,7 @@ class RefreshViewSet(ModelViewSet):
 
         try:
             serializer.is_valid(raise_exception=True)
-        except InvalidToken as e:
+        except TokenError as e:
             raise InvalidToken(e.args[0])
 
         return Response(serializer.validated_data, status=HTTP_200_OK)

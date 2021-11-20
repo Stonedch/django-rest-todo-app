@@ -5,8 +5,8 @@ from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.settings import api_settings
 
-from core.user.serializers import UserSerializer
-from core.user.models import User
+from todo.user.serializers import UserSerializer
+from todo.user.models import User
 
 
 class LoginSerializer(TokenObtainPairSerializer):
@@ -26,7 +26,7 @@ class LoginSerializer(TokenObtainPairSerializer):
         return data
 
 
-class RegisterSerializer(UserSerializer):
+class RegistrationSerializer(UserSerializer):
     password = serializers.CharField(max_length=128, min_length=8, write_only=True, required=True)
     email = serializers.EmailField(max_length=128, write_only=True, required=True)
 
