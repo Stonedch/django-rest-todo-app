@@ -19,9 +19,21 @@ from django.urls import path, include
 from rest_framework import routers
 
 from todo import views
+from todo.auth.viewsets import LoginViewSet, RegistrationViewSet, RefreshViewSet
+from todo.user.viewsets import UserViewSet
 
 router = routers.DefaultRouter()
+
 router.register('tasks/?', views.TaskView, 'task')
+
+# Authentication routers
+router.register('auth/login', LoginViewSet, 'auth-login')
+router.register('auth/register', RegistrationViewSet, 'auth-register')
+router.register('auth/refresh', RefreshViewSet, 'auth-refresh')
+
+# User routers
+router.register('user/', UserViewSet, 'user')
+
 slashless_router = routers.DefaultRouter(trailing_slash=False)
 slashless_router.registry = router.registry[:]
 
