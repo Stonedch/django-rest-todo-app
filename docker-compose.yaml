@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+
+    webserver:
+        build:
+            context: ${APP_ROOT}
+            dockerfile: Dockerfile
+        container_name: ${PROJECT_NAME}-webserver
+        command: python manage.py runserver 0.0.0.0:80
+        volumes:
+            - ${APP_ROOT}:/usr/src/app/
+        ports:
+            - ${HOST_PORT}:80
+        env_file:
+            - ./.env
