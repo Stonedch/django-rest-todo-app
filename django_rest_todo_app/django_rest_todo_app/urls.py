@@ -13,11 +13,8 @@ router.registry.extend(todo_router.registry)
 router.registry.extend(user_router.registry)
 router.registry.extend(authentication_router.registry)
 
-urlpatterns = router.urls
-
 urlpatterns = [
     path('api/', include([
-        path('', include('authentication.urls'), name='authentication'),
         path('', include(router.urls), name='router'),
     ]), name='api')
 ]
