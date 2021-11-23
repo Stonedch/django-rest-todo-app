@@ -1,9 +1,9 @@
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.viewsets import ViewSet, ModelViewSet
 from rest_framework.permissions import AllowAny
 
-from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
 
@@ -48,7 +48,7 @@ class RegistrationViewSet(ModelViewSet):
         }, status=status.HTTP_201_CREATED)
 
 
-class RefreshViewSet(ModelViewSet):
+class RefreshViewSet(ViewSet, TokenRefreshView):
     permission_classes = (AllowAny, )
     http_method_names = ['post']
 
@@ -60,4 +60,4 @@ class RefreshViewSet(ModelViewSet):
         except TokenError as e:
             raise InvalidToken(e.args[0])
 
-        return Response(serializer.validated_data, status=HTTP_200_OK)
+        return Response(serializer.validated_data, status=status.HTTP_200_OK)
