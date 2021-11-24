@@ -6,8 +6,8 @@ from rest_framework.response import Response
 
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
-from .models import User
-from .serializers import UserSerializer
+from user.models import User
+from user.serializers import UserSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):

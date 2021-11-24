@@ -1,6 +1,6 @@
 [
     {
-        "model": "todo_user.User",
+        "model": "user.User",
         "pk": 1,
         "fields": {
             "username": "admin",

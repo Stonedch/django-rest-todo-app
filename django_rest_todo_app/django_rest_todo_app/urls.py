@@ -4,7 +4,7 @@ from django.urls import path, include
 from rest_framework import routers
 
 from todo.urls import router as todo_router
-from todo.user.urls import router as user_router
+from user.urls import router as user_router
 from authentication.urls import router as authentication_router
 
 router = routers.DefaultRouter()

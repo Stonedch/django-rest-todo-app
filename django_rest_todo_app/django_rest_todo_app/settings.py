@@ -19,7 +19,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'todo',
-    'todo.user',
+    'user',
     'authentication',
 ]
 
@@ -76,7 +76,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = 'todo_user.User'
+AUTH_USER_MODEL = 'user.User'
 
 CORS_ORIGIN_WHITELIST = [
      'http://localhost:3000',

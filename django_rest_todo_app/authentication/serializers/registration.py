@@ -1,8 +1,8 @@
 from rest_framework import serializers
 from django.core.exceptions import ObjectDoesNotExist
 
-from todo.user.serializers import UserSerializer
-from todo.user.models import User
+from user.serializers import UserSerializer
+from user.models import User
 
 
 class RegistrationSerializer(UserSerializer):

@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.test import APITestCase, APIClient
 
-from todo.user.models import User
+from user.models import User
 
 
 class AuthViewsTests(APITestCase):
