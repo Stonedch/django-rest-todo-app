@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Modal from "./components/Modal";
+import Header from "./components/Header";
 import axios from "axios";
 
 class App extends Component {
@@ -24,7 +25,7 @@ class App extends Component {
 
   refreshList = () => {
     axios
-      .get("/api/v1/tasks")
+      .get("/api/tasks")
       .then((res) => this.setState({ todoList: res.data }))
       .catch((err) => console.log(err));
   };
@@ -38,18 +39,18 @@ class App extends Component {
 
     if (item.id) {
       axios
-        .put(`/api/v1/tasks/${item.id}/`, item)
+        .put(`/api/tasks/${item.id}/`, item)
         .then((res) => this.refreshList());
       return;
     }
     axios
-      .post("/api/v1/tasks", item)
+      .post("/api/tasks", item)
       .then((res) => this.refreshList());
   };
 
   handleDelete = (item) => {
     axios
-    .delete(`/api/v1/tasks/${item.id}/`)
+    .delete(`/api/tasks/${item.id}/`)
     .then((res) => this.refreshList());
   };
 
@@ -132,7 +133,7 @@ class App extends Component {
 
       <div className="container">
 
-        <h1 className="text-white text-uppercase text-center my-4">Todo app</h1>
+        <Header />
 
         <div className="row">
           <div className="col-md-6 col-sm-10 mx-auto p-0">
