@@ -2,17 +2,29 @@ version: '3.9'
 
 services:
 
+  nginx:
+    restart: unless-stopped
+    build:
+        context: .
+        dockerfile: ./docker/nginx/Dockerfile
+    container_name: ${PROJECT_NAME}-nginx
+    ports:
+        - 80:80
+    volumes:
+        - ./django_rest_todo_app/.static/:/usr/src/app/backend/.static/
+        - ./docker/nginx/development:/etc/nginx/conf.d
+    depends_on:
+        - backend
+
   backend:
     restart: unless-stopped
     build:
       context: ./
       dockerfile: ./docker/backend/Dockerfile
+    container_name: ${PROJECT_NAME}-backend
     entrypoint: /usr/src/app/docker/backend/wsgi-entrypoint.sh
     volumes:
       - ./docker/:/usr/src/app/docker/
       - ./django_rest_todo_app/:/usr/src/app/backend/
-    ports:
-      - ${HOST_PORT}:8000
-    container_name: ${PROJECT_NAME}-backend
     env_file:
       - ./.env
