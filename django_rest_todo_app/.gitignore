@@ -5,7 +5,7 @@
 __pycache__
 db.sqlite3
 media
-django-static/
+.static/
 
 # Backup files
 *.bak
